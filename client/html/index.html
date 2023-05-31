@@ -1,0 +1,203 @@
+<html>
+
+    <head>
+        <title>Web Duel</title>
+        <meta charset="utf-8">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <link rel="shortcut icon" type="text/css" href="./images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Antic+Slab" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+        <script defer src="./scripts/jquery.min.js"></script>
+        <script defer src="./scripts/jquery.cookie.js"></script>
+        <script defer src="./scripts/socket.io.js"></script>
+        <script defer src="./scripts/language_replacement.js"></script>
+        <script defer src="./scripts/script.js"></script>
+    </head>
+
+    <body>
+
+        <div id="main_menu">
+            <div id="menu">
+
+                <div id="main_label_div">
+                    <h1 id="main_label">Web Duel</h1>
+                </div>
+
+                <div id="menu_buttons">
+                    <div class="main-menu-button">
+                        <a id="main_menu_button_online">btn-online</a>
+                    </div>
+
+                    <div class="main-menu-button">
+                        <a id="main_menu_button_local">btn-local</a>
+                    </div>
+                        
+                    <div class="main-menu-button">
+                        <a id="main_menu_button_bot">btn-bot</a>
+                    </div>
+
+                    <div class="main-menu-button">
+                        <a id="main_menu_button_settings">btn-settings</a>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+        <div id="information_screen">
+            <div id="information_block">
+                <img class="close-icon">
+
+                <div id="loading_block" class="information_blocks">
+                    <div class="lds-dual-ring"></div>
+                    <a id="loading_text">Loading...</a>
+                </div>
+
+                <div id="error_block" class="information_blocks">
+                    <img class="error-icon">
+                    <a id="error_text">error-text</a>
+                </div>
+
+                <div id="fight_result_block" class="information_blocks">
+                    <img class="fight-icon">
+                    <a id="fight_text">fight-text</a>
+                </div>
+
+            </div>
+        </div>
+
+        <ul id="fast_menu">
+            <li>
+                <a id="fast_menu_btn_back">btn-back</a>
+            </li>
+        </ul>
+
+        <div id="settings_menu">
+            <ul id="settings_ul">
+
+                <li class="settings-ul-li">
+                    <a class="settings-name" id="settings_language">settings-language</a>
+                    <hr/>
+                    <ul id="settings_language_ul">
+                    </ul>
+                </li>
+
+                <li class="settings-ul-li">
+                    <a class="settings-name" id="settings_volume">settings-volume</a>
+                    <hr/>
+                    <div id="settings_volume_div">
+                        <img class="volume-icon" id="settings_volume_icon">
+                        <span id="settings_volume_value">-1</span>
+                        <input id="settings_volume_range" orient="horizontal" type="range" step="0.1" value="0.4" min="0.0" max="1.0">
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div id="online_menu">
+            <div id="online_menu_elements">
+
+                <div id="online_menu_chat">
+                    <div id="chat_div">
+                        <textarea readonly id="chat_area" placeholder=""></textarea>
+                        <input id="send_message" type="text" value="" placeholder="Send message.. [Enter]"/>
+                    </div>
+                </div>
+
+                <div id="online_menu_rooms_list">
+                    <div id="rooms_list">  
+
+                        <div id="rooms_list_div">
+                            <ul id="rooms_list_ul">
+                                <li id="rooms_list_ul_li_info">
+                                    <img class="unlock-icon">
+                                    <a id="rooms_count_text">rooms-count</a>
+                                    <a id="rooms_count">-1</a>
+                                    <a id="players_online">-1</a>
+                                    <a id="rooms_online_text">rooms-online</a>
+                                </li>
+                            </ul>
+                        </div>
+                            
+                        <div id="input_nickname_div">
+                            <img class="user-icon">
+                            <input id="change_nickname" disabled="true" type="text" value="" placeholder="change-nickname"/>
+                            <img class="change-icon">
+                        </div>
+
+                        <div id="input_search_name_div">
+                            <img class="search-icon">
+                            <input id="room_search" type="text" value="" placeholder="room-name"/>
+                            <img class="close2-icon">
+                        </div>
+                        
+                        <div id="input_password_div">
+                            <img class="lock-icon">
+                            <input id="room_pass" type="text" value="" placeholder="room-password"/>
+                        </div>
+
+                        <a id="create_room">create-room</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="battle_elements">
+
+            <div id="first_player">
+                <a id="first_player_name">first-player-name</a>
+                <hr>
+                <a class="first-player-time">0.000</a>
+                <a id="first_player_score">+1</a>
+                <img class="duelant-img first-duelant-img" id="first_player_img">
+                <a class="button-ready-disabled first-player-btn-ready" >not-read</a>
+            </div>
+
+            <div id="center_game_elements">
+                <div class="dscore">
+                    <a class="score1">0</a>
+                    <a class="score2">:</a>
+                    <a class="score3">0</a>
+                </div>
+
+                <div id="reaction_btn_div">
+                    <div id="reaction_btn">
+                        <a id="reaction_btn_text">reaction-text</a>
+                    </div>
+                </div>
+                
+                <div id="player_elements_for_mobile_devices">
+                    <a class="first-player-time">0.000</a>
+                    <a class="second-player-time">0.000</a>
+                    <a class="button-ready-disabled first-player-btn-ready">not-read</a>
+                    <a class="button-ready-disabled second-player-btn-ready">not-ready</a>
+                </div>
+            </div>
+
+            <div id="second_player">
+                <a id="second_player_name">second-player-name</a>
+                <hr>
+                <a id="second_player_score">+1</a>
+                <a class="second-player-time">0.000</a>
+                <img class="duelant-img second-duelant-img" id="second_player_img">
+                <a class="button-ready-disabled second-player-btn-ready">not-ready</a>
+            </div>
+
+        </div>
+
+        <p id="version">v 1.0</p>
+        <div id="fast_volume_div">
+            <input id="fast_volume_range" orient="vertical" type="range" step="0.1" value="0.4" min="0.0" max="1.0">
+            <span id="fast_volume_value"></span>
+            <img class="volume-icon">
+        </div>
+        
+    </body>
+</html>
